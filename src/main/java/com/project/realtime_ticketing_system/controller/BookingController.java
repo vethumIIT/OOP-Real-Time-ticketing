@@ -2,6 +2,7 @@ package com.project.realtime_ticketing_system.controller;
 
 
 import com.project.realtime_ticketing_system.models.Booking;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,9 +34,17 @@ public class BookingController {
     }
 
     @RequestMapping({"/create/","/create"})
-    public ResponseEntity<String> create(@RequestBody Booking booking){
+    public CompletableFuture<ResponseEntity<String>> create(@RequestBody Booking booking){
         System.out.println("/api/booking/create");
-        return ResponseEntity.ok("This page appears when you hit confirm for the booking");
+
+        // verify user account
+        // verify the ticket availability
+        // book ticket if available
+        // else return no tickets available
+
+        return bookingService.create(booking).thenApply(ResponseEntity::ok);
+
+        //return ResponseEntity.ok("This page appears when you hit confirm for the booking");
     }
 
     @RequestMapping("/update/")

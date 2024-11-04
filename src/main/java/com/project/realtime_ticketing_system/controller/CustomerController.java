@@ -11,6 +11,7 @@ public class CustomerController {
 
     @RequestMapping("/register")// create
     public String register(){
+        // check availability of username
         return "This is where the backend starts registering customers";
     }
 

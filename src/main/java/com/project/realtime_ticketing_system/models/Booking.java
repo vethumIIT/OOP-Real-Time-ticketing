@@ -1,20 +1,20 @@
 package com.project.realtime_ticketing_system.models;
 
 
-import java.util.Objects;
-
 public class Booking {
 
     private Long bookingId;
     private Long customerId;
-    private Long ticketId;
+    private Long eventId;
     private int ticketCount;
+    private String bookingDate;
 
-    public Booking(Long bookingId, Long customerId, Long ticketId, int ticketCount) {
+    public Booking(Long bookingId, Long customerId, Long eventId, int ticketCount, String bookingDate) {
         this.setBookingId(bookingId);
         this.setCustomerId(customerId);
-        this.setTicketId(ticketId);
+        this.setEventId(eventId);
         this.setTicketCount(ticketCount);
+        this.setBookingDate(bookingDate);
     }
 
     public Long getBookingId() {
@@ -33,14 +33,6 @@ public class Booking {
         this.customerId = customerId;
     }
 
-    public Long getTicketId() {
-        return ticketId;
-    }
-
-    public void setTicketId(Long ticketId) {
-        this.ticketId = ticketId;
-    }
-
     public int getTicketCount() {
         return ticketCount;
     }
@@ -49,4 +41,19 @@ public class Booking {
         this.ticketCount = ticketCount;
     }
 
+    public String getBookingDate() {
+        return bookingDate;
+    }
+
+    public void setBookingDate(String bookingDate) {
+        this.bookingDate = bookingDate;
+    }
+
+    public Long getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(Long eventId) {
+        this.eventId = eventId;
+    }
 }
