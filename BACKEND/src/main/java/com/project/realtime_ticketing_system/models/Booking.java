@@ -8,6 +8,7 @@ public class Booking {
     private Long eventId;
     private int ticketCount;
     private String bookingDate;
+    private String eventName;
 
     public Booking(Long bookingId, Long customerId, Long eventId, int ticketCount, String bookingDate) {
         this.setBookingId(bookingId);
@@ -55,5 +56,13 @@ public class Booking {
 
     public void setEventId(Long eventId) {
         this.eventId = eventId;
+    }
+
+    public String getEventName() {
+        return eventName;
+    }
+
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
 }

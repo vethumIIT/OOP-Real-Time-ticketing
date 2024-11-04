@@ -1,27 +1,44 @@
 package com.project.realtime_ticketing_system.controller;
 
+import com.project.realtime_ticketing_system.models.Booking;
+import com.project.realtime_ticketing_system.models.Customer;
+import com.project.realtime_ticketing_system.services.CustomerService;
+import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
+
+import java.util.concurrent.CompletableFuture;
 
 @RestController
 @RequestMapping("/api/customer")
 public class CustomerController {
 
+    private final CustomerService customerService;
+
+    @Autowired
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
+    }
+
+
     @RequestMapping("/register")// create
-    public String register(){
+    public CompletableFuture<ResponseEntity<String>> register(@RequestBody Customer customer, HttpSession session){
         // check availability of username
-        return "This is where the backend starts registering customers";
+        System.out.println("Registering: "+customer.getName());
+        return customerService.register(customer, session).thenApply(ResponseEntity::ok);
     }
 
     @RequestMapping("/login") // read
-    public String log_in(){
-        return "This is where the backend starts validating credentials and logging in the customer";
+    public CompletableFuture<ResponseEntity<String>> log_in(@RequestBody Customer customer, HttpSession session){
+        return customerService.login(customer, session).thenApply(ResponseEntity::ok);
     }
 
     @RequestMapping("/logout")
-    public ResponseEntity<String> logout(){
+    public ResponseEntity<String> logout(HttpSession session){
         return ResponseEntity.ok("This is where the vendor logs out");
     }
 

@@ -6,13 +6,19 @@ public class UserTemplate {
     private Long id;
     private String name;
     private String email;
-    private String passwordHash;
+    private String password;
 
-    public UserTemplate(Long id, String name, String email, String passwordHash) {
+    public UserTemplate(Long id, String name, String email, String password) {
         this.setId(id);
         this.setName(name);
         this.setEmail(email);
-        this.setPasswordHash(passwordHash);
+        this.setPassword(password);
+    }
+
+    public UserTemplate(String name, String email, String password) {
+        this.setName(name);
+        this.setEmail(email);
+        this.setPassword(password);
     }
 
     public Long getId() {
@@ -39,11 +45,11 @@ public class UserTemplate {
         this.email = email;
     }
 
-    public String getPasswordHash() {
-        return passwordHash;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
