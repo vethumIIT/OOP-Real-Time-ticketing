@@ -1,0 +1,50 @@
+#mainMenuDiv {
+    background-color: white;
+    /*width: 100vw;
+    height: 100vh;*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 1%;
+}
+
+.eventDiv {
+    background-color: rgb(159, 248, 57);
+    width: 30%;
+    margin: 10px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    padding: 10px;
+    float: left;
+    transition: 0.5s;
+    
+}
+
+.eventDiv li{
+    list-style-type: none;
+}
+
+.eventDiv li span{
+    font-weight: bold;
+}
+
+.eventDiv:hover{
+    background-color: rgb(174, 255, 82);
+    /*transform: scale(1.05);*/
+}
+.bookTicketsButton{
+    background-color: rgb(255, 166, 0);
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+.bookTicketsButton:hover{
+    background-color: rgb(255, 225, 136);
+}
+
+.price{
+    color: rgb(255, 46, 46);
+}
+

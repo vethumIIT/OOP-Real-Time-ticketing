@@ -1,0 +1,38 @@
+.profileBookingCard{
+    background-color: rgb(70, 255, 209);
+    border-radius: 10px;
+    padding: 10px;
+    width: 50%;
+    margin: 10px;
+}
+.profileBookingCard ul{
+    list-style-type: none;
+}
+.profileBookingCard li{
+    margin: 0px;
+    list-style-type: none;
+}
+
+.profileBookingCard li span{
+    font-weight: bold;
+}
+
+.profileEventCard{
+    background-color: rgb(135, 253, 56);
+    border-radius: 10px;
+    padding: 10px;
+    width: 50%;
+    margin: 10px;
+}
+.profileEventCard ul{
+    list-style-type: none;
+}
+
+.profileEventCard ul li{
+    margin: 0px;
+    list-style-type: none;
+}
+
+.profileEventCard ul li span{
+    font-weight: bold;
+}
