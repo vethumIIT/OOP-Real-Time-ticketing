@@ -1,9 +1,7 @@
 package com.project.realtime_ticketing_system.repositories;
 
-import com.project.realtime_ticketing_system.models.Event;
+
 import com.project.realtime_ticketing_system.models.data_transfer_objects.RepoResponse;
-import org.hibernate.annotations.processing.SQL;
-import org.hibernate.mapping.Array;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sqlite.SQLiteErrorCode;

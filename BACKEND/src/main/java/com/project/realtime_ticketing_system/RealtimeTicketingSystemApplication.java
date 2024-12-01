@@ -1,12 +1,10 @@
 package com.project.realtime_ticketing_system;
 
 import com.project.realtime_ticketing_system.config.SqliteSetup;
-import jakarta.servlet.annotation.HttpConstraint;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {
@@ -23,14 +21,5 @@ public class RealtimeTicketingSystemApplication {
 		SpringApplication.run(RealtimeTicketingSystemApplication.class, args);
 	}
 
-	/*@RequestMapping("/api/")
-	public String index() {
-		return "Index Page!";
-	}
-
-	@RequestMapping("/hello")
-	public String hello(){
-		return "Hello World!";
-	}*/
 
 }
