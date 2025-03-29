@@ -50,6 +50,10 @@ public class EventRepository {
 
         List<Map<String, Object>> result = db.readDatabase("SELECT * FROM event WHERE tickets_sold<total_tickets", null);
 
+        if (result==null){
+            return events;
+        }
+
         for (Map<String, Object> record : result){
             events.add(this.toEvent(record));
         }

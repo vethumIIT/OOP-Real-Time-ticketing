@@ -1,5 +1,6 @@
 package com.project.realtime_ticketing_system;
 
+import com.project.realtime_ticketing_system.config.AllowedOrigins;
 import com.project.realtime_ticketing_system.config.SqliteSetup;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 		"com.project.realtime_ticketing_system.services",
 		"com.project.realtime_ticketing_system.repositories"
 		})
-@CrossOrigin(origins = "http://192.168.1.6:5173", allowCredentials = "true")
+@CrossOrigin(origins = AllowedOrigins.allowedOrigins, allowCredentials = "true")
 public class RealtimeTicketingSystemApplication {
 
 	public static void main(String[] args) {

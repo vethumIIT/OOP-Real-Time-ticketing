@@ -4,14 +4,18 @@ package com.project.realtime_ticketing_system.controller;
 import com.project.realtime_ticketing_system.config.AllowedOrigins;
 import com.project.realtime_ticketing_system.models.Vendor;
 import com.project.realtime_ticketing_system.services.VendorService;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Duration;
 import java.util.List;
 
 @RestController
@@ -34,14 +38,19 @@ public class VendorController {
     }
 
     @RequestMapping("/login") // read
-    public ResponseEntity<String> log_in(@RequestBody Vendor vendor, HttpSession session){
+    public ResponseEntity<String> log_in(@RequestBody Vendor vendor, HttpSession session, HttpServletResponse response){
 
         List<String> list = vendorService.login(vendor);
 
         if (list.get(0).equals("Logged In")) {
             session.setAttribute("username", list.get(1));
             session.setAttribute("UserType", "vendor");
+            System.out.println("Logged in vendor");
+            System.out.println(session.getAttribute("username"));
+            System.out.println(session.getAttribute("UserType"));
         }
+        //ResponseCookie cookie = SessionManager.setCookies(session);
+        //response.setHeader(HttpHeaders.SET_COOKIE, cookie.toString());
 
         return ResponseEntity.ok(list.get(0));
         //return "This is where the backend starts validating credentials and logging in the vendors";
@@ -64,7 +73,10 @@ public class VendorController {
     }
 
     @RequestMapping("/get")
-    public ResponseEntity<Vendor> getVendor(@RequestBody Vendor vendor, HttpSession session){
+    public ResponseEntity<Vendor> getVendor(@RequestBody Vendor vendor, HttpSession session, HttpServletResponse response){
+        System.out.println("username: "+session.getAttribute("username"));
+        //ResponseCookie cookie = SessionManager.setCookies(session);
+        //response.setHeader(HttpHeaders.SET_COOKIE, cookie.toString());
         if (session.getAttribute("username")==null){
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
         } else if (session.getAttribute("username").equals(vendor.getName())) {

@@ -36,6 +36,7 @@ public class EventController {
     @RequestMapping("/create")// create a new event (needs vendor login)
     public ResponseEntity<String> create_event(@RequestBody Event event, HttpSession session){
         if(!SessionManager.isLoggedIn(session, "vendor")){
+            System.out.println("Vendor not logged in for create event");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Not Logged In");
         }
 
